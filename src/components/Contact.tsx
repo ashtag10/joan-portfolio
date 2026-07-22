@@ -2,7 +2,7 @@
 import { personalInfo } from "@/data/portfolio";
 import { t } from "@/data/translations";
 import { useLang } from "@/context/LangContext";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const inputStyle: React.CSSProperties = {
   width: "100%", padding: "0.75rem 1rem",
@@ -15,6 +15,8 @@ export default function Contact() {
   const { lang } = useLang();
   const tr = t[lang].contact;
 
+  const mailtoUrl = `mailto:${personalInfo.email}?subject=Prise%20de%20contact%20depuis%20le%20portfolio`;
+
   return (
     <section id="contact" style={{ padding: "6rem 0", background: "var(--color-bg2)", borderTop: "1px solid var(--color-border)" }}>
       <div className="wrap">
@@ -22,9 +24,9 @@ export default function Contact() {
         <h2 className="s-heading" data-aos="fade-up" data-aos-delay="80">{tr.heading}</h2>
         <p data-aos="fade-up" data-aos-delay="140" style={{ color: "var(--color-muted)", maxWidth: 560, marginBottom: "3rem", lineHeight: 1.8, fontSize: "0.9rem" }}>{tr.desc}</p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "start" }} className="contact-grid">
+        <div className="contact-grid">
 
-          {/* Terminal */}
+          {/* Terminal d'informations (Affiché sur Desktop ET Mobile) */}
           <div className="terminal" data-aos="fade-right">
             <div className="terminal-bar">
               <span className="t-dot" style={{ background: "#ff5f57" }} /><span className="t-dot" style={{ background: "#febc2e" }} /><span className="t-dot" style={{ background: "#28c840" }} />
@@ -54,8 +56,8 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
-          <form data-aos="fade-left"
+          {/* Formulaire complet (DESKTOP uniquement) */}
+          <form className="desktop-form" data-aos="fade-left"
             onSubmit={e => { e.preventDefault(); const d = new FormData(e.target as HTMLFormElement); window.location.href = `mailto:${personalInfo.email}?subject=Contact portfolio — ${d.get("name")}&body=${d.get("message")}%0A%0A— ${d.get("name")} (${d.get("email")})`; }}
             style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
@@ -85,9 +87,64 @@ export default function Contact() {
               ))}
             </div>
           </form>
+
+          {/* Boutons d'action (MOBILE uniquement, affichés sous le terminal) */}
+          <div className="mobile-actions" data-aos="fade-up">
+            <a
+              href={mailtoUrl}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.6rem",
+                width: "100%",
+                padding: "1rem",
+                background: "var(--color-red)",
+                color: "#fff",
+                borderRadius: 6,
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.8rem",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                fontWeight: 600,
+              }}
+            >
+              <Mail size={18} />
+              {tr.send || "Envoyer un e-mail"}
+            </a>
+
+            <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", marginTop: "1rem" }}>
+              {[{ href: personalInfo.github, icon: Github, label: "GitHub" }, { href: personalInfo.linkedin, icon: Linkedin, label: "LinkedIn" }].map(({ href, icon: Icon, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.6rem 1.2rem", border: "1px solid var(--color-border)", borderRadius: 6, fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "var(--color-muted)", textDecoration: "none" }}>
+                  <Icon size={14} />{label}
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
-      <style>{`.contact-grid{grid-template-columns:1fr 1fr}@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}`}</style>
+
+      {/* Règle CSS pour adapter la grille sur Mobile */}
+      <style>{`
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+          align-items: start;
+        }
+        .mobile-actions { display: none; }
+
+        @media(max-width: 768px) {
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+          .desktop-form { display: none !important; }
+          .mobile-actions { display: block !important; }
+        }
+      `}</style>
     </section>
   );
 }
