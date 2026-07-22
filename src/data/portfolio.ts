@@ -3,7 +3,7 @@ export const personalInfo = {
   surname: "TAKAMTE KAMGA",
   title: "Ingénieur Logiciel",
   subtitle: "Systèmes Embarqués · IoT · Full-Stack",
-  tagline: "Diplômé ingénieur en juil. 2026 · Actuellement en stage fin d'études chez Construct Services BTP",
+  tagline: "Ingénieur Informaticien · En négociation freelance chez Construct Services BTP",
   email: "joantakamte19@gmail.com",
   phone: "00237 657 434 515",
   location: "Douala, Cameroun",
@@ -17,14 +17,13 @@ export const personalInfo = {
 
 export const techStack = [
   "Next.js", "React", "Java", "Spring Boot", "Django", "Python",
-  "PHP", "Arduino", "MySQL", "PostgreSQL", "Git", "Figma",
+  "Arduino", "MySQL", "PostgreSQL", "Git", "Figma",
   "HTML/CSS", "IoT", "UML", "Docker", "REST API", "Agile",
 ];
 
 export const skills = [
   { category: "Développement Web", items: [
     { name: "HTML / CSS", level: 85 },
-    { name: "PHP (OOP)", level: 75 },
     { name: "Django / Python", level: 80 },
     { name: "Java / Spring Boot", level: 80 },
     { name: "Next.js / React", level: 75 },
@@ -37,7 +36,7 @@ export const skills = [
   { category: "Base de données", items: [
     { name: "MySQL", level: 85 },
     { name: "PostgreSQL", level: 75 },
-    { name: "PhpMyAdmin / DB Browser", level: 80 },
+    { name: "DB Browser", level: 80 },
   ]},
   { category: "Outils & Méthodes", items: [
     { name: "Git / GitHub", level: 90 },
@@ -48,14 +47,26 @@ export const skills = [
 
 export const experiences = [
   {
-    role: "Développeur Full-Stack Stagiaire (Fin d'études)",
+    role: "Développeur & Marketer Freelance (en négociation)",
     company: "Construct Services BTP",
     location: "Douala",
-    period: "2025 — Présent",
+    period: "2026 — Présent",
     logo: "/images/logo/cs.png",
     current: true,
     tasks: [
-      "Stage de fin d'études — diplôme d'ingénieur prévu juillet 2026",
+      "Négociation d'un contrat freelance suite au stage de fin d'études",
+      "Développement de solutions numériques pour le secteur BTP",
+    ],
+  },
+  {
+    role: "Développeur Full-Stack — Stage Fin d'études",
+    company: "Construct Services BTP",
+    location: "Douala",
+    period: "2025 — Juil. 2026",
+    logo: "/images/logo/cs.png",
+    current: false,
+    tasks: [
+      "Stage de fin d'études — diplôme d'ingénieur obtenu juillet 2026",
       "Développement de solutions numériques pour le secteur BTP",
     ],
   },
@@ -67,13 +78,13 @@ export const experiences = [
     logo: "/images/logo/afriland.png",
     current: false,
     tasks: [
-      "Conception et implémentation de l'app de restauration « Maison First » (Next.js / Java Spring Boot)",
+      "Conception et implémentation de l'app « Maison First » (Next.js / Java Spring Boot)",
       "Architecture API Gateway et microservices",
     ],
   },
   {
     role: "Informaticien Stagiaire",
-    company: "École Nationale Supérieure Polytechnique de Douala",
+    company: "ENSP Douala",
     location: "Douala",
     period: "Juil. 2024 — Sept. 2024",
     logo: "/images/logo/enspd.png",
@@ -93,19 +104,18 @@ export const experiences = [
     tasks: [
       "Contrôle du système automatisé de la centrale électrique",
       "Supervision des sources secondaires d'électricité",
-      "Assistance maintenance électrique aéroport",
     ],
   },
 ];
 
 export const education = [
   {
-    degree: "Diplôme d'Ingénieur Logiciel",
+    degree: "Diplôme d'Ingénieur Informaticien",
     school: "ENSP — École Nationale Supérieure Polytechnique de Douala",
     period: "Oct. 2023 — Juil. 2026",
-    note: "Obtention prévue juillet 2026",
+    note: "Diplômé — Juillet 2026 ✓",
     logo: "/images/logo/enspd.png",
-    current: true,
+    current: false,
   },
   {
     degree: "Licence en Informatique",
