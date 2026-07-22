@@ -79,7 +79,7 @@ export default function Hero() {
               </div>
 
               <div data-aos="fade-up" data-aos-delay="380" style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-                <a href="/CV_Joan_Brunel.pdf" download style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "0.7rem 1.5rem", background: "var(--color-red)", color: "#fff", fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: 4, textDecoration: "none", border: "1px solid var(--color-red)", transition: "background 0.2s" }}
+                <a href="/CV.pdf" download style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "0.7rem 1.5rem", background: "var(--color-red)", color: "#fff", fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: 4, textDecoration: "none", border: "1px solid var(--color-red)", transition: "background 0.2s" }}
                   onMouseEnter={e => e.currentTarget.style.background = "var(--color-red-dark)"}
                   onMouseLeave={e => e.currentTarget.style.background = "var(--color-red)"}>
                   <Download size={13} /> {tr.downloadCV}
